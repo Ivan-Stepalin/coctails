@@ -1,0 +1,46 @@
+.home {
+    text-align: center;
+}
+
+.home__title {
+    text-align: center;
+    margin: 0;
+}
+
+.home__input {
+    width: 300px;
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 0;
+    /*-webkit-appearance: none;*/
+    border: 1px solid transparent;
+}
+
+.home__input:focus-visible{
+    outline: none;
+}
+
+.home__button {
+    display: inline-block;
+    padding: 10px 15px;
+    font-size: 20px;
+    border-radius: 0;
+    /*-webkit-appearance: none;*/
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.home__button:active {
+    opacity: .8;
+}
+
+.home__fieldset {
+    padding: 0;
+    margin: 10px auto 0;
+    border: none;
+}
+
+.home__drink-list {
+    margin: 100px auto 0;
+}

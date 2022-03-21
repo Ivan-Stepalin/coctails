@@ -1,21 +1,26 @@
 import "./App.css"
-import {useDispatch, useSelector} from "react-redux"
-import {useEffect} from "react"
-import {fecthGetCoctailByName} from "../../redux/coctailsSlice"
+import {Redirect, Route, Switch} from "react-router"
+import {Home} from "../Home/Home"
+import {NavBar} from "../NavBar/NavBar"
+import {Favourites} from "../Favourites/Favourites"
 
 function App() {
-	const dispatch = useDispatch()
-
-	const coctail = useSelector((state) => state.coctails.drinks)
-
-	//получение первичных данных по коктейлям
-	useEffect(() => {
-		dispatch(fecthGetCoctailByName("margarita"))
-	}, [])
-
-	console.log(coctail)
-
-	return <div>1231</div>
+	return (
+		<>
+			<NavBar />
+			<Switch>
+				<Route exact path={"/"}>
+					<Redirect to={"/home"} />
+				</Route>
+				<Route path={"/home"}>
+					<Home />
+				</Route>
+				<Route path={"/favourites"}>
+					<Favourites />
+				</Route>
+			</Switch>
+		</>
+	)
 }
 
 export default App

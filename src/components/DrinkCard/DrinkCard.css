@@ -1,0 +1,60 @@
+.drink-card {
+    display: flex;
+    margin: 0 auto 30px;
+}
+
+.drink-card__description {
+    margin: 0 0 0 20px;
+    text-align: left;
+}
+
+.drink-card__img {
+    cursor: pointer;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    overflow:hidden;
+}
+
+.drink-card__title {
+    margin: 0 auto 20px;
+    padding: 0;
+}
+.drink-card__info-name {
+    font-weight: 600;
+}
+
+.drink-card__info {
+    margin: 0 auto 10px;
+}
+
+.drink-card__img-button-like {
+    background: url("/src/images/LikeEnabled.svg");
+    background-size: contain;
+    opacity: .7;
+    width: 300px;
+    height: 300px;
+    display: none;
+}
+
+.drink-card__img-button-dislike {
+    background: url("/src/images/LikeDisabled.svg");
+    background-size: contain;
+    opacity: .5;
+    width: 300px;
+    height: 300px;
+    display: none;
+}
+
+/*.drink-card__img:hover {*/
+/*    opacity: .5;*/
+/*}*/
+
+.drink-card__img:hover .drink-card__img-button-like {
+    display: block;
+}
+
+.drink-card__img:hover .drink-card__img-button-dislike {
+    display: block;
+}

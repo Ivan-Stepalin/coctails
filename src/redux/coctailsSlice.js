@@ -13,6 +13,10 @@ const coctailsSlice = createSlice({
 		loading: false,
 	},
 	reducers: {
+		likeCoctail(state, action) {
+			const toggledDrink = state.drinks.find((drink) => drink.idDrink === action.payload)
+			toggledDrink.isLiked = !toggledDrink.isLiked
+		},
 		// addProductToShoppingList(state, action) {
 		//   state.shoppingList.push(action.payload);
 		// },
@@ -29,7 +33,15 @@ const coctailsSlice = createSlice({
 			}
 		})
 		builder.addCase(fecthGetCoctailByName.fulfilled, (state, action) => {
-			state.drinks = action.payload.drinks
+			if (action.payload.drinks !== null) {
+				const drinks = action.payload.drinks.map((item) => {
+					return {...item, isLiked: false}
+				})
+				state.drinks = drinks
+			} else {
+				alert("по вашему запросу ничего не найдено")
+			}
+
 			state.loading = false
 		})
 		builder.addCase(fecthGetCoctailByName.rejected, (state, action) => {
@@ -39,7 +51,6 @@ const coctailsSlice = createSlice({
 	},
 })
 
-// export const { addProductToShoppingList, removeProductFromShoppingList } =
-//   coctailsSlice.actions;
+export const {likeCoctail} = coctailsSlice.actions
 
 export default coctailsSlice.reducer
