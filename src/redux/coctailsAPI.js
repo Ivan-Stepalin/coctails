@@ -1,7 +1,7 @@
-import axios from "../utils/customAxios";
+import axios from "../utils/customAxios"
 
 export const coctailsAPI = {
-    getCoctailByName(name) {
-        return axios.get(`search.php?s=${name}`)
-    }
+	getCoctailByName(name) {
+		return axios.get(`search.php?s=${name}`)
+	},
 }
