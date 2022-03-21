@@ -17,34 +17,25 @@ const coctailsSlice = createSlice({
 			const toggledDrink = state.drinks.find((drink) => drink.idDrink === action.payload)
 			toggledDrink.isLiked = !toggledDrink.isLiked
 		},
-		// addProductToShoppingList(state, action) {
-		//   state.shoppingList.push(action.payload);
-		// },
-		// removeProductFromShoppingList(state, action) {
-		//   state.shoppingList = state.shoppingList.filter(
-		//     (product) => product.id !== action.payload.id
-		//   );
-		// },
 	},
 	extraReducers: (builder) => {
-		builder.addCase(fecthGetCoctailByName.pending, (state, action) => {
+		builder.addCase(fecthGetCoctailByName.pending, (state) => {
 			if (state.loading === false) {
 				state.loading = true
 			}
 		})
 		builder.addCase(fecthGetCoctailByName.fulfilled, (state, action) => {
 			if (action.payload.drinks !== null) {
-				const drinks = action.payload.drinks.map((item) => {
+				state.drinks = action.payload.drinks.map((item) => {
 					return {...item, isLiked: false}
 				})
-				state.drinks = drinks
 			} else {
 				alert("по вашему запросу ничего не найдено")
 			}
 
 			state.loading = false
 		})
-		builder.addCase(fecthGetCoctailByName.rejected, (state, action) => {
+		builder.addCase(fecthGetCoctailByName.rejected, (state) => {
 			alert("Запрос коктейлей не прошёл")
 			state.loading = false
 		})

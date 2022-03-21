@@ -10,6 +10,15 @@ export const Favourites = () => {
 	const drinks = useSelector((state) => state.coctails.drinks)
 
 	if (drinks.filter((drink) => drink.isLiked === true).length > 0) {
-		return drinks.filter((drink) => drink.isLiked === true).map((drink) => <DrinkCard drink={drink} key={drink.idDrink} />)
+		return (
+			<div className={"container"}>
+				<h1 className={"home__title"}>Here you can find coctails !</h1>
+				{drinks
+					.filter((drink) => drink.isLiked === true)
+					.map((drink) => (
+						<DrinkCard drink={drink} key={drink.idDrink} />
+					))}
+			</div>
+		)
 	} else return <h1 className={"favourites__no-content"}>No favourites coctails yet!</h1>
 }

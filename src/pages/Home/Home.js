@@ -22,7 +22,7 @@ export const Home = () => {
 	}
 
 	return (
-		<div className={"home"}>
+		<div className={"container"}>
 			<Preloader isOpen={isLoading} />
 			<h1 className={"home__title"}>Here you can find coctails !</h1>
 			<fieldset className={"home__fieldset"}>
