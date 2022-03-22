@@ -1,0 +1,12 @@
+.page__container {
+    text-align: center;
+}
+
+.page__title {
+    text-align: center;
+    margin: 0;
+}
+
+.page__list {
+    margin: 100px 0 0;
+}

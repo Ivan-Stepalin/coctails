@@ -1,0 +1,29 @@
+{
+  "env": {
+    "node": true,
+    "commonjs": true,
+    "browser": true,
+    "es2021": true,
+    "jest/globals": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "globalReturn": true,
+    "requireConfigFile": false
+  },
+  "plugins": ["jest"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": 1,      //warrning when props are missing types assignment
+    "no-unused-vars": "warn" //warrning when no used var used
+  }
+}
