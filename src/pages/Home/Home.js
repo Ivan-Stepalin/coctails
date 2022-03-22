@@ -4,6 +4,7 @@ import {useEffect, useState} from "react"
 import {fecthGetCoctailByName} from "../../redux/coctailsSlice"
 import {DrinkCard} from "../../components/DrinkCard/DrinkCard"
 import {Preloader} from "../../components/Preloader/Preloader"
+import {PageConstructor} from "../../components/PageConstructor/PageConstructor"
 
 export const Home = () => {
 	const dispatch = useDispatch()
@@ -22,22 +23,14 @@ export const Home = () => {
 	}
 
 	return (
-		<div className={"container"}>
+		<PageConstructor title={"Here you can find coctails !"} drinks={drinks}>
 			<Preloader isOpen={isLoading} />
-			<h1 className={"home__title"}>Here you can find coctails !</h1>
 			<fieldset className={"home__fieldset"}>
 				<input value={search} onChange={(e) => setSearch(e.target.value)} placeholder="enter coctail name" className={"home__input"} />
 				<button className={"home__button"} onClick={handleGetCoctailsByName}>
 					Search
 				</button>
 			</fieldset>
-			{drinks.length > 0 && (
-				<div className={"home__drink-list"}>
-					{drinks.map((drink) => (
-						<DrinkCard drink={drink} key={drink.idDrink} />
-					))}
-				</div>
-			)}
-		</div>
+		</PageConstructor>
 	)
 }

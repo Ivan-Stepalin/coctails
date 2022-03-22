@@ -6,6 +6,7 @@
 .drink-card__description {
     margin: 0 0 0 20px;
     text-align: left;
+    max-width: 900px;
 }
 
 .drink-card__img {
